@@ -1,0 +1,2 @@
+# HubInvestments
+App for investments
