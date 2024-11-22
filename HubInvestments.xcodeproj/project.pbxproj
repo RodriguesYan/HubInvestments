@@ -14,6 +14,7 @@
 		DB943C022CF003E200428485 /* HubInvestmentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943C012CF003E200428485 /* HubInvestmentsTests.swift */; };
 		DB943C0C2CF003E200428485 /* HubInvestmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943C0B2CF003E200428485 /* HubInvestmentsUITests.swift */; };
 		DB943C0E2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943C0D2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift */; };
+		DB943C1C2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png in Resources */ = {isa = PBXBuildFile; fileRef = DB943C1B2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DB943C072CF003E200428485 /* HubInvestmentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HubInvestmentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB943C0B2CF003E200428485 /* HubInvestmentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubInvestmentsUITests.swift; sourceTree = "<group>"; };
 		DB943C0D2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubInvestmentsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB943C1B2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screenshot 2024-11-21 at 21.19.52.png"; path = "../../../../../../../var/folders/np/89yjrg5931j2hngc7hpw90y80000gn/T/TemporaryItems/NSIRD_screencaptureui_6nsS5k/Screenshot 2024-11-21 at 21.19.52.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		DB943BE42CF003DF00428485 = {
 			isa = PBXGroup;
 			children = (
+				DB943C1A2CF0058800428485 /* images */,
 				DB943BEF2CF003DF00428485 /* HubInvestments */,
 				DB943C002CF003E200428485 /* HubInvestmentsTests */,
 				DB943C0A2CF003E200428485 /* HubInvestmentsUITests */,
@@ -125,6 +128,14 @@
 				DB943C0D2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift */,
 			);
 			path = HubInvestmentsUITests;
+			sourceTree = "<group>";
+		};
+		DB943C1A2CF0058800428485 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				DB943C1B2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB943BF82CF003E200428485 /* Preview Assets.xcassets in Resources */,
+				DB943C1C2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png in Resources */,
 				DB943BF52CF003E200428485 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
