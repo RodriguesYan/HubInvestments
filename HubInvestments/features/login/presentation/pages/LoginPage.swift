@@ -19,14 +19,17 @@ struct LoginPage: View {
             Spacer(height: 32)
             HubTextField(controller: email)
             Spacer(height: 32)
-            Button(action: signIn) {
-                Text("Acessar conta")
+            HubButtonPrimary(text: "Acessar conta") {
+                
             }
-            .frame(width: .infinity, height: 54)
-            .frame(maxWidth: . infinity)
-            .background(.green)
-            .foregroundColor(.black)
-            .cornerRadius(26)
+//            Button(action: signIn) {
+//                Text("Acessar conta")
+//            }
+//            .frame(width: .infinity, height: 54)
+//            .frame(maxWidth: . infinity)
+//            .background(.green)
+//            .foregroundColor(.black)
+//            .cornerRadius(26)
             
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
