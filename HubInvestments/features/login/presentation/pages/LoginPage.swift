@@ -26,7 +26,8 @@ struct LoginPage: View {
             HubTextField(
                 controller: password,
                 label: "Password",
-                placeholder: "Type your password"
+                placeholder: "Type your password",
+                isPasswordField: true
             )
             HubSpacer(height: 24)
             Button(action: handleForgetPassword) {
