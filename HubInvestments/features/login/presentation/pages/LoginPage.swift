@@ -28,12 +28,23 @@ struct LoginPage: View {
                 label: "Password",
                 placeholder: "Type your password"
             )
+            HubSpacer(height: 24)
+            Button(action: handleForgetPassword) {
+                Text("Forget your password?")
+                    .underline()
+                    .font(.system(size: 16, weight: .semibold, design: .default))
+            }
+            .foregroundColor(.black)
             Spacer()
             HubButtonPrimary(text: "Access account") {
                 
             }
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+        
+    }
+    
+    func handleForgetPassword() {
         
     }
     
