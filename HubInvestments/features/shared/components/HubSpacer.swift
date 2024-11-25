@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Spacer: View {
+struct HubSpacer: View {
     var  height: Double
     
     init(height: Double) {

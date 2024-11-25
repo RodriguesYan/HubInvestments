@@ -9,28 +9,29 @@ import SwiftUI
 
 struct LoginPage: View {
     @State private var email: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Acessar sua conta")
-                .frame(alignment: .leading)
-            Spacer(height: 32)
-            HubTextField(controller: email)
-            Spacer(height: 32)
-            HubTextField(controller: email)
-            Spacer(height: 32)
-            HubButtonPrimary(text: "Acessar conta") {
+            HubSpacer(height: 64)
+            Text("Access your account")
+                .font(.system(size: 32, weight: .semibold, design: .default))
+            HubSpacer(height: 32)
+            HubTextField(
+                controller: email,
+                label: "E-mail",
+                placeholder: "Type your e-mail"
+            )
+            HubSpacer(height: 32)
+            HubTextField(
+                controller: password,
+                label: "Password",
+                placeholder: "Type your password"
+            )
+            Spacer()
+            HubButtonPrimary(text: "Access account") {
                 
             }
-//            Button(action: signIn) {
-//                Text("Acessar conta")
-//            }
-//            .frame(width: .infinity, height: 54)
-//            .frame(maxWidth: . infinity)
-//            .background(.green)
-//            .foregroundColor(.black)
-//            .cornerRadius(26)
-            
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
         

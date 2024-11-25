@@ -10,21 +10,24 @@ import SwiftUI
 struct HubTextField: View {
     @State var controller: String
     var label: String
+    var placeholder: String
     
-    init(controller: String, label: String = "") {
+    init(controller: String, label: String = "", placeholder: String = "") {
         self.controller = controller
         self.label = label
+        self.placeholder = placeholder
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Acessar sua conta")
+            Text(label)
             TextField(
-                "My text",
+                placeholder,
                 text: $controller
                 
             )
             .frame(height: 58)
+            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
             .border(.secondary)
             .cornerRadius(8)
             .overlay(
