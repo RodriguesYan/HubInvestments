@@ -19,8 +19,8 @@ struct HubButtonPrimary: View {
     var body: some View {
         Button(action: action){
             Text("Acessar conta")
+                .frame(height: 48)
         }
-        .frame(width: .infinity, height: 54)
         .frame(maxWidth: . infinity)
         .background(.green)
         .foregroundColor(.black)

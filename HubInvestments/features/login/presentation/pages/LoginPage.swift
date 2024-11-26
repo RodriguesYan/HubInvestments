@@ -18,16 +18,17 @@ struct LoginPage: View {
                 .font(.system(size: 32, weight: .semibold, design: .default))
             HubSpacer(height: 32)
             HubTextField(
-                controller: email,
-                label: "E-mail",
-                placeholder: "Type your e-mail"
+                controller: $email,
+                placeholder: "Type your e-mail",
+                label: "Type your e-mail"
             )
             HubSpacer(height: 32)
             HubTextField(
-                controller: password,
-                label: "Password",
+                controller: $password,
+                isPasswordField: true,
                 placeholder: "Type your password",
-                isPasswordField: true
+                label: "Password"
+                
             )
             HubSpacer(height: 24)
             Button(action: handleForgetPassword) {
