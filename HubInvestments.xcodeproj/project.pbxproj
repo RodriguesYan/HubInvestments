@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB307A9B2CF54C41000BEF45 /* HubHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */; };
+		DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */; };
 		DB943BF12CF003DF00428485 /* HubInvestmentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943BF02CF003DF00428485 /* HubInvestmentsApp.swift */; };
 		DB943BF32CF003DF00428485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943BF22CF003DF00428485 /* ContentView.swift */; };
 		DB943BF52CF003E200428485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB943BF42CF003E200428485 /* Assets.xcassets */; };
@@ -19,6 +21,7 @@
 		DBB548462CF25A2100BBC8D5 /* HubSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548452CF25A2100BBC8D5 /* HubSpacer.swift */; };
 		DBB548482CF25C8B00BBC8D5 /* HubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */; };
 		DBB5484A2CF260C600BBC8D5 /* HubButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */; };
+		DBF5FDA62CF680C800549904 /* HubEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5FDA52CF680C800549904 /* HubEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubHelpers.swift; sourceTree = "<group>"; };
+		DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateEmailModifier.swift; sourceTree = "<group>"; };
 		DB943BED2CF003DF00428485 /* HubInvestments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HubInvestments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB943BF02CF003DF00428485 /* HubInvestmentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubInvestmentsApp.swift; sourceTree = "<group>"; };
 		DB943BF22CF003DF00428485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		DBB548452CF25A2100BBC8D5 /* HubSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubSpacer.swift; sourceTree = "<group>"; };
 		DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubTextField.swift; sourceTree = "<group>"; };
 		DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubButtonPrimary.swift; sourceTree = "<group>"; };
+		DBF5FDA52CF680C800549904 /* HubEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB307A992CF54C2C000BEF45 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DBF5FDA42CF680AC00549904 /* enums */,
+				DB307A9C2CF54F33000BEF45 /* Modifiers */,
+				DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DB307A9C2CF54F33000BEF45 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		DB943BE42CF003DF00428485 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +131,7 @@
 			children = (
 				DBB5483C2CF258B300BBC8D5 /* features */,
 				DB943BF02CF003DF00428485 /* HubInvestmentsApp.swift */,
+				DB307A992CF54C2C000BEF45 /* Helpers */,
 				DB943BF22CF003DF00428485 /* ContentView.swift */,
 				DB943BF42CF003E200428485 /* Assets.xcassets */,
 				DB943BF62CF003E200428485 /* Preview Content */,
@@ -196,6 +221,14 @@
 				DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		DBF5FDA42CF680AC00549904 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				DBF5FDA52CF680C800549904 /* HubEnums.swift */,
+			);
+			path = enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,8 +366,11 @@
 				DBB548482CF25C8B00BBC8D5 /* HubTextField.swift in Sources */,
 				DBB548462CF25A2100BBC8D5 /* HubSpacer.swift in Sources */,
 				DBB548422CF258FD00BBC8D5 /* LoginPage.swift in Sources */,
+				DB307A9B2CF54C41000BEF45 /* HubHelpers.swift in Sources */,
 				DB943BF12CF003DF00428485 /* HubInvestmentsApp.swift in Sources */,
+				DBF5FDA62CF680C800549904 /* HubEnums.swift in Sources */,
 				DBB5484A2CF260C600BBC8D5 /* HubButtonPrimary.swift in Sources */,
+				DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

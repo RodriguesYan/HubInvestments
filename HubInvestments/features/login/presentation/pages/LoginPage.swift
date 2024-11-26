@@ -20,15 +20,16 @@ struct LoginPage: View {
             HubTextField(
                 controller: $email,
                 placeholder: "Type your e-mail",
-                label: "Type your e-mail"
+                label: "Type your e-mail",
+                type: TextFieldType.email
+                
             )
             HubSpacer(height: 32)
             HubTextField(
                 controller: $password,
-                isPasswordField: true,
                 placeholder: "Type your password",
-                label: "Password"
-                
+                label: "Password",
+                type: TextFieldType.password
             )
             HubSpacer(height: 24)
             Button(action: handleForgetPassword) {

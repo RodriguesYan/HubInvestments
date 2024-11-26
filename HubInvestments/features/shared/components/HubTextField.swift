@@ -6,33 +6,21 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HubTextField: View {
-//    @State var controller: String
-//    @State private var isPasswordVisible: Bool = false
-//    var label: String
-//    var placeholder: String
-//    var isPasswordField: Bool
-//    
-//    init(controller: String, label: String = "", placeholder: String = "", isPasswordField: Bool = false) {
-//        self.controller = controller
-//        self.label = label
-//        self.placeholder = placeholder
-//        self.isPasswordField = isPasswordField
-//    }
-    
     @Binding var controller: String
-    @State var isPasswordField: Bool = false
     @State var isSecure: Bool = true
     var placeholder: String = ""
     var label: String
-    
+    var type: TextFieldType	= TextFieldType.comum
+ 
     var body: some View {
         VStack(alignment: .leading) {
             Text(label)
             ZStack(alignment: .trailing) {
                 Group{
-                    if isSecure && isPasswordField {
+                    if isSecure && type == TextFieldType.password {
                         SecureField(placeholder, text: $controller)
                     } else {
                         TextField(placeholder, text: $controller)
@@ -49,7 +37,7 @@ struct HubTextField: View {
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
                 
                 //Add any common modifiers here so they dont have to be repeated for each Field
-                if isPasswordField {
+                if type == TextFieldType.password  {
                     Button(action: {
                         isSecure.toggle()
                     }) {
@@ -58,7 +46,7 @@ struct HubTextField: View {
                     }
                     .padding(.trailing, 8)
                 }
-            }//Add any modifiers shared by the Button and the Fields here
+            }
         }
     }
 }
