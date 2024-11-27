@@ -14,6 +14,8 @@ struct HubTextField: View {
     var placeholder: String = ""
     var label: String
     var type: TextFieldType	= TextFieldType.comum
+    @State var feedback: String = ""
+    var validator: (_ input: String) -> Void
  
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,8 +24,15 @@ struct HubTextField: View {
                 Group{
                     if isSecure && type == TextFieldType.password {
                         SecureField(placeholder, text: $controller)
+                            .onChange(of: controller) {
+                                validator(controller)
+                            }
+                            
                     } else {
                         TextField(placeholder, text: $controller)
+                            .onChange(of: controller) {
+                                validator(controller)
+                            }
                     }
                 }
                 .frame(height: 58)
@@ -36,7 +45,6 @@ struct HubTextField: View {
                 )
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
                 
-                //Add any common modifiers here so they dont have to be repeated for each Field
                 if type == TextFieldType.password  {
                     Button(action: {
                         isSecure.toggle()
@@ -47,6 +55,8 @@ struct HubTextField: View {
                     .padding(.trailing, 8)
                 }
             }
+            Text(feedback)
+                .foregroundColor(.red)
         }
     }
 }

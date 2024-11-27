@@ -9,7 +9,9 @@ import SwiftUI
 
 struct LoginPage: View {
     @State private var email: String = ""
+    @State private var emailFeedback = ""
     @State private var password: String = ""
+    @State private var passwordFeedback = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,16 +23,37 @@ struct LoginPage: View {
                 controller: $email,
                 placeholder: "Type your e-mail",
                 label: "Type your e-mail",
-                type: TextFieldType.email
-                
+                type: TextFieldType.email,
+                feedback: emailFeedback,
+                validator: { input in
+                    let isValidEmail = HubHelpers.isValidEmail(input)
+                    
+                    if isValidEmail {
+                        emailFeedback = ""
+                    } else {
+                        emailFeedback = "Put a valid email"
+                    }
+                }
             )
+            Text(emailFeedback)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
+                .foregroundColor(.red)
             HubSpacer(height: 32)
             HubTextField(
                 controller: $password,
                 placeholder: "Type your password",
                 label: "Password",
-                type: TextFieldType.password
+                type: TextFieldType.password,
+                feedback: passwordFeedback,
+                validator: { input in
+                    if input.count > 6 {
+                        passwordFeedback = ""
+                    } else {
+                        passwordFeedback = "Put a valid password"
+                    }
+                }
             )
+            Text(passwordFeedback)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
+                .foregroundColor(.red)
             HubSpacer(height: 24)
             Button(action: handleForgetPassword) {
                 Text("Forget your password?")

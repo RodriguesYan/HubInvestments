@@ -22,6 +22,7 @@
 		DBB548482CF25C8B00BBC8D5 /* HubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */; };
 		DBB5484A2CF260C600BBC8D5 /* HubButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */; };
 		DBF5FDA62CF680C800549904 /* HubEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5FDA52CF680C800549904 /* HubEnums.swift */; };
+		DBF5FDAA2CF6856A00549904 /* AnotherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5FDA92CF6856A00549904 /* AnotherTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubTextField.swift; sourceTree = "<group>"; };
 		DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubButtonPrimary.swift; sourceTree = "<group>"; };
 		DBF5FDA52CF680C800549904 /* HubEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubEnums.swift; sourceTree = "<group>"; };
+		DBF5FDA92CF6856A00549904 /* AnotherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				DBB548452CF25A2100BBC8D5 /* HubSpacer.swift */,
 				DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */,
 				DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */,
+				DBF5FDA92CF6856A00549904 /* AnotherTest.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				DB943BF12CF003DF00428485 /* HubInvestmentsApp.swift in Sources */,
 				DBF5FDA62CF680C800549904 /* HubEnums.swift in Sources */,
 				DBB5484A2CF260C600BBC8D5 /* HubButtonPrimary.swift in Sources */,
+				DBF5FDAA2CF6856A00549904 /* AnotherTest.swift in Sources */,
 				DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
