@@ -16,7 +16,6 @@
 		DB943C022CF003E200428485 /* HubInvestmentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943C012CF003E200428485 /* HubInvestmentsTests.swift */; };
 		DB943C0C2CF003E200428485 /* HubInvestmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943C0B2CF003E200428485 /* HubInvestmentsUITests.swift */; };
 		DB943C0E2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB943C0D2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift */; };
-		DB943C1C2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png in Resources */ = {isa = PBXBuildFile; fileRef = DB943C1B2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png */; };
 		DBB548422CF258FD00BBC8D5 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548412CF258FD00BBC8D5 /* LoginPage.swift */; };
 		DBB548462CF25A2100BBC8D5 /* HubSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548452CF25A2100BBC8D5 /* HubSpacer.swift */; };
 		DBB548482CF25C8B00BBC8D5 /* HubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */; };
@@ -55,7 +54,6 @@
 		DB943C072CF003E200428485 /* HubInvestmentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HubInvestmentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB943C0B2CF003E200428485 /* HubInvestmentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubInvestmentsUITests.swift; sourceTree = "<group>"; };
 		DB943C0D2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubInvestmentsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DB943C1B2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screenshot 2024-11-21 at 21.19.52.png"; path = "../../../../../../../var/folders/np/89yjrg5931j2hngc7hpw90y80000gn/T/TemporaryItems/NSIRD_screencaptureui_6nsS5k/Screenshot 2024-11-21 at 21.19.52.png"; sourceTree = "<group>"; };
 		DBB548412CF258FD00BBC8D5 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DBB548452CF25A2100BBC8D5 /* HubSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubSpacer.swift; sourceTree = "<group>"; };
 		DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubTextField.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 		DB943BE42CF003DF00428485 = {
 			isa = PBXGroup;
 			children = (
-				DB943C1A2CF0058800428485 /* images */,
 				DB943BEF2CF003DF00428485 /* HubInvestments */,
 				DB943C002CF003E200428485 /* HubInvestmentsTests */,
 				DB943C0A2CF003E200428485 /* HubInvestmentsUITests */,
@@ -164,14 +161,6 @@
 				DB943C0D2CF003E200428485 /* HubInvestmentsUITestsLaunchTests.swift */,
 			);
 			path = HubInvestmentsUITests;
-			sourceTree = "<group>";
-		};
-		DB943C1A2CF0058800428485 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				DB943C1B2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 		DBB5483C2CF258B300BBC8D5 /* features */ = {
@@ -339,7 +328,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB943BF82CF003E200428485 /* Preview Assets.xcassets in Resources */,
-				DB943C1C2CF005B500428485 /* Screenshot 2024-11-21 at 21.19.52.png in Resources */,
 				DB943BF52CF003E200428485 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
