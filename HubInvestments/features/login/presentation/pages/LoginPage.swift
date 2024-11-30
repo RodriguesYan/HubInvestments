@@ -12,6 +12,7 @@ struct LoginPage: View {
     @State private var emailFeedback: String? = nil
     @State private var password: String = ""
     @State private var passwordFeedback: String? = nil
+    @State private var isLoading: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -66,9 +67,11 @@ struct LoginPage: View {
             }
             .foregroundColor(.black)
             Spacer()
-            HubButtonPrimary(text: "Access account") {
-                
-            }
+            HubButtonPrimary(
+                text: "Access account",
+                action: signIn,
+                isLoading: isLoading
+            )
             .isEnabled(isEnabled: enableButton())
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
@@ -84,6 +87,14 @@ struct LoginPage: View {
     }
     
     func signIn() {
+        
+        Task {
+            print("Caiu aqui 1")
+            isLoading = true
+            try? await Task.sleep(nanoseconds: 2_500_000_000)
+            print("Caiu aqui 2")
+            isLoading = false
+        }
         
     }
 }
