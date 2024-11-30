@@ -9,9 +9,9 @@ import SwiftUI
 
 struct LoginPage: View {
     @State private var email: String = ""
-    @State private var emailFeedback = ""
+    @State private var emailFeedback: String? = nil
     @State private var password: String = ""
-    @State private var passwordFeedback = ""
+    @State private var passwordFeedback: String? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,7 +24,7 @@ struct LoginPage: View {
                 placeholder: "Type your e-mail",
                 label: "Type your e-mail",
                 type: TextFieldType.email,
-                feedback: emailFeedback,
+//                feedback: emailFeedback,
                 validator: { input in
                     let isValidEmail = HubHelpers.isValidEmail(input)
                     
@@ -35,15 +35,17 @@ struct LoginPage: View {
                     }
                 }
             )
-            Text(emailFeedback)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
-                .foregroundColor(.red)
+            if emailFeedback != nil {
+                Text(emailFeedback!)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
+                    .foregroundColor(.red)
+            }
             HubSpacer(height: 32)
             HubTextField(
                 controller: $password,
                 placeholder: "Type your password",
                 label: "Password",
                 type: TextFieldType.password,
-                feedback: passwordFeedback,
+//                feedback: passwordFeedback,
                 validator: { input in
                     if input.count > 6 {
                         passwordFeedback = ""
@@ -52,8 +54,10 @@ struct LoginPage: View {
                     }
                 }
             )
-            Text(passwordFeedback)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
-                .foregroundColor(.red)
+            if passwordFeedback != nil {
+                Text(passwordFeedback!)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
+                    .foregroundColor(.red)
+            }
             HubSpacer(height: 24)
             Button(action: handleForgetPassword) {
                 Text("Forget your password?")
@@ -65,9 +69,14 @@ struct LoginPage: View {
             HubButtonPrimary(text: "Access account") {
                 
             }
+            .isEnabled(isEnabled: enableButton())
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
         
+    }
+    
+    func enableButton() -> Bool {
+        return (passwordFeedback != nil && passwordFeedback!.isEmpty) && (emailFeedback != nil && emailFeedback!.isEmpty)
     }
     
     func handleForgetPassword() {

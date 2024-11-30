@@ -14,7 +14,7 @@ struct HubTextField: View {
     var placeholder: String = ""
     var label: String
     var type: TextFieldType	= TextFieldType.comum
-    @State var feedback: String = ""
+//    @State var feedback: String = ""
     var validator: (_ input: String) -> Void
  
     var body: some View {
@@ -33,6 +33,7 @@ struct HubTextField: View {
                             .onChange(of: controller) {
                                 validator(controller)
                             }
+                            .autocapitalization(.none)
                     }
                 }
                 .frame(height: 58)
@@ -55,8 +56,8 @@ struct HubTextField: View {
                     .padding(.trailing, 8)
                 }
             }
-            Text(feedback)
-                .foregroundColor(.red)
+//            Text(feedback)
+//                .foregroundColor(.red)
         }
     }
 }

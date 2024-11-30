@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+struct EnableDisableModifier: ViewModifier {
+    var isEnabled: Bool
+
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: . infinity)
+            .background((isEnabled ? Color.green : Color.gray.opacity(0.3)))
+            .foregroundColor(.black.opacity(isEnabled ? 1.0 : 0.3))
+            .cornerRadius(26)
+            .disabled(!isEnabled)
+    }
+}
+
+extension View {
+    func isEnabled(isEnabled: Bool) -> some View {
+        self.modifier(EnableDisableModifier(isEnabled: isEnabled))
+    }
+}
+
+
 struct HubButtonPrimary: View {
     var text: String
     var action: () -> Void
@@ -21,10 +41,6 @@ struct HubButtonPrimary: View {
             Text("Acessar conta")
                 .frame(height: 48)
         }
-        .frame(maxWidth: . infinity)
-        .background(.green)
-        .foregroundColor(.black)
-        .cornerRadius(26)
     }
 }
 
