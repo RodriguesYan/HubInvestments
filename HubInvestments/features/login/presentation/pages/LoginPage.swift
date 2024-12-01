@@ -6,13 +6,34 @@
 //
 
 import SwiftUI
+import Combine
 
 class LoginViewModel: ObservableObject {
+    var datasource: LoginDatasourceProtocol
+    
+    init(datasource: LoginDatasourceProtocol) {
+        self.datasource = datasource
+    }
+    
     @Published var email: String = ""
     @Published var emailFeedback: String? = nil
     @Published var password: String = ""
     @Published var passwordFeedback: String? = nil
     @Published var isLoading: Bool = false
+    @Published var navigateToDetail = false
+    
+    @Published var token: String = ""
+    var cancellables = Set<AnyCancellable>()
+    
+    func signIn() {
+        datasource.getData()
+            .sink { _ in
+                
+            } receiveValue: { [weak self] model in
+                self?.token = model.token
+            }
+            .store(in: &cancellables)
+    }
     
     func enableButton() -> Bool {
         if passwordFeedback == nil {
@@ -40,9 +61,15 @@ class LoginViewModel: ObservableObject {
 }
 
 struct LoginPage: View {
-    @StateObject private var vm = LoginViewModel()
+    @StateObject private var vm: LoginViewModel
+    var datasource: LoginDatasourceProtocol = LoginDatasourceMock()
+    
+    init(datasource: LoginDatasourceProtocol) {
+        _vm = StateObject(wrappedValue: LoginViewModel(datasource: datasource))
+    }
     
     var body: some View {
+        NavigationStack {
         VStack(alignment: .leading) {
             HubSpacer(height: 64)
             Text("Access your account")
@@ -73,7 +100,7 @@ struct LoginPage: View {
                 placeholder: "Type your password",
                 label: "Password",
                 type: TextFieldType.password,
-//                feedback: passwordFeedback,
+                //                feedback: passwordFeedback,
                 validator: { input in
                     if input.count > 6 {
                         vm.passwordFeedback = ""
@@ -100,8 +127,12 @@ struct LoginPage: View {
                 isLoading: $vm.isLoading
             )
             .isEnabled(isEnabled: vm.enableButton())
+            .navigationDestination(isPresented: $vm.navigateToDetail) {
+                HomePage(token: vm.token)
+            }
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+    }
         
     }
     
@@ -114,7 +145,9 @@ struct LoginPage: View {
         Task {
             print("Caiu aqui 1")
             vm.isLoading = true
+            vm.signIn()
             try? await Task.sleep(nanoseconds: 2_500_000_000)
+            vm.navigateToDetail = true
             print("Caiu aqui 2")
             vm.isLoading = false
         }
@@ -123,5 +156,5 @@ struct LoginPage: View {
 }
 
 #Preview {
-    LoginPage()
+    LoginPage(datasource: LoginDatasourceMock())
 }
