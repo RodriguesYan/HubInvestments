@@ -79,7 +79,27 @@ struct LoginPage: View {
     }
     
     func enableButton() -> Bool {
-        return (passwordFeedback != nil && passwordFeedback!.isEmpty) && (emailFeedback != nil && emailFeedback!.isEmpty)
+        if passwordFeedback == nil {
+            return false
+        }
+        
+        if !passwordFeedback!.isEmpty {
+            return false
+        }
+        
+        if emailFeedback == nil {
+            return false
+        }
+        
+        if !emailFeedback!.isEmpty {
+            return false
+        }
+        
+        if isLoading {
+            return false
+        }
+        
+        return true
     }
     
     func handleForgetPassword() {
