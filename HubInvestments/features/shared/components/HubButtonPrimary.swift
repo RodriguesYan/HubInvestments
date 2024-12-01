@@ -30,16 +30,10 @@ extension View {
 struct HubButtonPrimary: View {
     var text: String
     var action: () -> Void
-    @State var isLoading: Bool = false
-    
-    init(text: String, action: @escaping () -> Void, @State isLoading: Bool) {
-        self.text = text
-        self.action = action
-        self.isLoading = isLoading
-    }
+    @Binding var isLoading: Bool
     
     var body: some View {
-        Button(action: action){
+        Button(action: action) {
             if(isLoading) {
                 ProgressView()
                     .frame(height: 48)

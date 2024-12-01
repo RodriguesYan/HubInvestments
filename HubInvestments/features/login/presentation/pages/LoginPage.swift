@@ -70,7 +70,7 @@ struct LoginPage: View {
             HubButtonPrimary(
                 text: "Access account",
                 action: signIn,
-                isLoading: isLoading
+                isLoading: $isLoading
             )
             .isEnabled(isEnabled: enableButton())
         }
