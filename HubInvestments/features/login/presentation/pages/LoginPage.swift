@@ -7,76 +7,12 @@
 
 import SwiftUI
 
-struct LoginPage: View {
-    @State private var email: String = ""
-    @State private var emailFeedback: String? = nil
-    @State private var password: String = ""
-    @State private var passwordFeedback: String? = nil
-    @State private var isLoading: Bool = false
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            HubSpacer(height: 64)
-            Text("Access your account")
-                .font(.system(size: 32, weight: .semibold, design: .default))
-            HubSpacer(height: 32)
-            HubTextField(
-                controller: $email,
-                placeholder: "Type your e-mail",
-                label: "Type your e-mail",
-                type: TextFieldType.email,
-//                feedback: emailFeedback,
-                validator: { input in
-                    let isValidEmail = HubHelpers.isValidEmail(input)
-                    
-                    if isValidEmail {
-                        emailFeedback = ""
-                    } else {
-                        emailFeedback = "Put a valid email"
-                    }
-                }
-            )
-            if emailFeedback != nil {
-                Text(emailFeedback!)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
-                    .foregroundColor(.red)
-            }
-            HubSpacer(height: 32)
-            HubTextField(
-                controller: $password,
-                placeholder: "Type your password",
-                label: "Password",
-                type: TextFieldType.password,
-//                feedback: passwordFeedback,
-                validator: { input in
-                    if input.count > 6 {
-                        passwordFeedback = ""
-                    } else {
-                        passwordFeedback = "Put a valid password"
-                    }
-                }
-            )
-            if passwordFeedback != nil {
-                Text(passwordFeedback!)//TODO: Pesquisar como por esse cara em outro file e fazer atualizar
-                    .foregroundColor(.red)
-            }
-            HubSpacer(height: 24)
-            Button(action: handleForgetPassword) {
-                Text("Forget your password?")
-                    .underline()
-                    .font(.system(size: 16, weight: .semibold, design: .default))
-            }
-            .foregroundColor(.black)
-            Spacer()
-            HubButtonPrimary(
-                text: "Access account",
-                action: signIn,
-                isLoading: $isLoading
-            )
-            .isEnabled(isEnabled: enableButton())
-        }
-        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
-        
-    }
+class LoginViewModel: ObservableObject {
+    @Published var email: String = ""
+    @Published var emailFeedback: String? = nil
+    @Published var password: String = ""
+    @Published var passwordFeedback: String? = nil
+    @Published var isLoading: Bool = false
     
     func enableButton() -> Bool {
         if passwordFeedback == nil {
@@ -101,6 +37,73 @@ struct LoginPage: View {
         
         return true
     }
+}
+
+struct LoginPage: View {
+    @StateObject private var vm = LoginViewModel()
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HubSpacer(height: 64)
+            Text("Access your account")
+                .font(.system(size: 32, weight: .semibold, design: .default))
+            HubSpacer(height: 32)
+            HubTextField(
+                controller: $vm.email,
+                placeholder: "Type your e-mail",
+                label: "Type your e-mail",
+                type: TextFieldType.email,
+                validator: { input in
+                    let isValidEmail = HubHelpers.isValidEmail(input)
+                    
+                    if isValidEmail {
+                        vm.emailFeedback = ""
+                    } else {
+                        vm.emailFeedback = "Put a valid email"
+                    }
+                }
+            )
+            if vm.emailFeedback != nil {
+                Text(vm.emailFeedback!)
+                    .foregroundColor(.red)
+            }
+            HubSpacer(height: 32)
+            HubTextField(
+                controller: $vm.password,
+                placeholder: "Type your password",
+                label: "Password",
+                type: TextFieldType.password,
+//                feedback: passwordFeedback,
+                validator: { input in
+                    if input.count > 6 {
+                        vm.passwordFeedback = ""
+                    } else {
+                        vm.passwordFeedback = "Put a valid password"
+                    }
+                }
+            )
+            if vm.passwordFeedback != nil {
+                Text(vm.passwordFeedback!)
+                    .foregroundColor(.red)
+            }
+            HubSpacer(height: 24)
+            Button(action: handleForgetPassword) {
+                Text("Forget your password?")
+                    .underline()
+                    .font(.system(size: 16, weight: .semibold, design: .default))
+            }
+            .foregroundColor(.black)
+            Spacer()
+            HubButtonPrimary(
+                text: "Access account",
+                action: signIn,
+                isLoading: $vm.isLoading
+            )
+            .isEnabled(isEnabled: vm.enableButton())
+        }
+        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+        
+    }
     
     func handleForgetPassword() {
         
@@ -110,10 +113,10 @@ struct LoginPage: View {
         
         Task {
             print("Caiu aqui 1")
-            isLoading = true
+            vm.isLoading = true
             try? await Task.sleep(nanoseconds: 2_500_000_000)
             print("Caiu aqui 2")
-            isLoading = false
+            vm.isLoading = false
         }
         
     }
