@@ -26,11 +26,12 @@ class LoginViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     func signIn() {
-        datasource.getData()
+        datasource.getData(email: email, password: password)
             .sink { _ in
                 
             } receiveValue: { [weak self] model in
                 self?.token = model.token
+                print("my token: \(model.token)")
             }
             .store(in: &cancellables)
     }
@@ -62,7 +63,7 @@ class LoginViewModel: ObservableObject {
 
 struct LoginPage: View {
     @StateObject private var vm: LoginViewModel
-    var datasource: LoginDatasourceProtocol = LoginDatasourceMock()
+    var datasource: LoginDatasourceProtocol = LoginDatasource()
     
     init(datasource: LoginDatasourceProtocol) {
         _vm = StateObject(wrappedValue: LoginViewModel(datasource: datasource))
@@ -156,5 +157,5 @@ struct LoginPage: View {
 }
 
 #Preview {
-    LoginPage(datasource: LoginDatasourceMock())
+    LoginPage(datasource: LoginDatasource())
 }
