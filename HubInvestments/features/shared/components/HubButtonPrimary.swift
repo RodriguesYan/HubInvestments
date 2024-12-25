@@ -38,8 +38,9 @@ struct HubButtonPrimary: View {
                 ProgressView()
                     .frame(height: 48)
             } else {
-                Text("Acessar conta")
+                Text(text)
                     .frame(height: 48)
+                    .fontWeight(.bold)
             }
         }
     }

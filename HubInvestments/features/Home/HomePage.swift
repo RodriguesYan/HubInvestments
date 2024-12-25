@@ -39,15 +39,53 @@ struct HomePage: View {
         _vm = StateObject(wrappedValue: HomeViewModel(datasource: datasource))
     }
     
-    @State var token: String = ""
+    var hideValues: Bool = true
     
     var body: some View {
-        Text(token)
-            .onAppear {
-                Task {
-                    await vm.getAucAggregation()
-                }
+        NavigationStack {
+            HStack {
+                Text("Investments")
+                    .font(.system(size: 24, weight: .semibold, design: .default))
+                Spacer()
+                Image(systemName: hideValues ? "eye.slash" : "eye")
+                    .foregroundColor(.gray)
             }
+            HubSpacer(height: 32)
+            VStack(alignment: .leading) {
+                Text("Available to invest")
+                    .font(.system(size: 16, weight: .regular, design: .default))
+                Text("$ 982.839,23")
+                    .font(.system(size: 32, weight: .bold, design: .default))
+                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            HStack {
+                HubButtonPrimary(
+                    text: "Invest", 
+                    action: {
+                    
+                    }, 
+                    isLoading: .constant(false)
+                )
+                .isEnabled(isEnabled: true)
+                HubButtonSecondary(
+                    text: "Deposit",
+                    action: {
+                        
+                    }
+                )
+            }
+             
+            Spacer()
+        }
+        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            Task {
+//                        await vm.getAucAggregation()
+            }
+        }
+      
         
         if vm.aucAggregation != nil {
             VStack {
@@ -60,6 +98,6 @@ struct HomePage: View {
     }
 }
 
-//#Preview {
-//    HomePage()
-//}
+#Preview {
+    HomePage(datasource: HomeDatasource())
+}

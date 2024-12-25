@@ -11,6 +11,7 @@
 		DB031C0D2D18C82F00DCCA63 /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB031C0C2D18C82F00DCCA63 /* HomeDatasource.swift */; };
 		DB031C0F2D18C8C300DCCA63 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB031C0E2D18C8C300DCCA63 /* AppUrls.swift */; };
 		DB031C122D18C9CA00DCCA63 /* AucAggregationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB031C112D18C9CA00DCCA63 /* AucAggregationModel.swift */; };
+		DB1452652D1C69520069BB1D /* HubButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1452642D1C69520069BB1D /* HubButtonSecondary.swift */; };
 		DB307A9B2CF54C41000BEF45 /* HubHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */; };
 		DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */; };
 		DB6302282CFCCB1D00B889AB /* LoginDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6302272CFCCB1D00B889AB /* LoginDatasource.swift */; };
@@ -52,6 +53,7 @@
 		DB031C0C2D18C82F00DCCA63 /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		DB031C0E2D18C8C300DCCA63 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
 		DB031C112D18C9CA00DCCA63 /* AucAggregationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AucAggregationModel.swift; sourceTree = "<group>"; };
+		DB1452642D1C69520069BB1D /* HubButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubButtonSecondary.swift; sourceTree = "<group>"; };
 		DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubHelpers.swift; sourceTree = "<group>"; };
 		DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateEmailModifier.swift; sourceTree = "<group>"; };
 		DB6302272CFCCB1D00B889AB /* LoginDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDatasource.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				DBB548472CF25C8B00BBC8D5 /* HubTextField.swift */,
 				DBB548492CF260C600BBC8D5 /* HubButtonPrimary.swift */,
 				DBF5FDA92CF6856A00549904 /* AnotherTest.swift */,
+				DB1452642D1C69520069BB1D /* HubButtonSecondary.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				DB63022B2CFCDECD00B889AB /* HomePage.swift in Sources */,
 				DBF5FDA62CF680C800549904 /* HubEnums.swift in Sources */,
 				DBB5484A2CF260C600BBC8D5 /* HubButtonPrimary.swift in Sources */,
+				DB1452652D1C69520069BB1D /* HubButtonSecondary.swift in Sources */,
 				DBF5FDAA2CF6856A00549904 /* AnotherTest.swift in Sources */,
 				DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */,
 				DB031C0A2D18C5D000DCCA63 /* auth_handler.swift in Sources */,
