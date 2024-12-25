@@ -29,9 +29,7 @@ protocol LoginDatasourceProtocol {
 //}
 
 class LoginDatasource: LoginDatasourceProtocol {
-//    let url: URL = URL(string: "http://localhost:8080/login")!//TODO: fazer tratamento desse nullable
-    let url: URL = URL(string: "http://192.168.0.172:8080/login")!//TODO: fazer tratamento desse nullable
-    //192.168.0.42
+    let url: URL = URL(string: AppUrl.login)!
     
     func getData(email: String, password: String) -> AnyPublisher<LoginModel, Error> {
         var request = URLRequest(url: url)

@@ -10,6 +10,7 @@ import Combine
 
 class LoginViewModel: ObservableObject {
     var datasource: LoginDatasourceProtocol
+//    let mySingleton = AuthHandler.shared
     
     init(datasource: LoginDatasourceProtocol) {
         self.datasource = datasource
@@ -25,13 +26,18 @@ class LoginViewModel: ObservableObject {
     @Published var token: String = ""
     var cancellables = Set<AnyCancellable>()
     
-    func signIn() {
+    func signIn() async {
+        self.isLoading = true
+//        try? await Task.sleep(nanoseconds: 2_500_000_000)
         datasource.getData(email: email, password: password)
             .sink { _ in
                 
-            } receiveValue: { [weak self] model in
-                self?.token = model.token
-                print("my token: \(model.token)")
+            } receiveValue: { model in
+                Task {
+                    await AuthHandler.shared.setToken(token: model.token)
+                    self.navigateToDetail = true
+                    self.isLoading = false
+                }
             }
             .store(in: &cancellables)
     }
@@ -124,12 +130,16 @@ struct LoginPage: View {
             Spacer()
             HubButtonPrimary(
                 text: "Access account",
-                action: signIn,
+                action: {
+                    Task {
+                        await signIn()
+                    }
+                },
                 isLoading: $vm.isLoading
             )
             .isEnabled(isEnabled: vm.enableButton())
             .navigationDestination(isPresented: $vm.navigateToDetail) {
-                HomePage(token: vm.token)
+                HomePage(datasource: HomeDatasource())
             }
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
@@ -141,18 +151,8 @@ struct LoginPage: View {
         
     }
     
-    func signIn() {
-        
-        Task {
-            print("Caiu aqui 1")
-            vm.isLoading = true
-            vm.signIn()
-            try? await Task.sleep(nanoseconds: 2_500_000_000)
-            vm.navigateToDetail = true
-            print("Caiu aqui 2")
-            vm.isLoading = false
-        }
-        
+    func signIn() async {
+        await vm.signIn()  
     }
 }
 
