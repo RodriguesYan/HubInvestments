@@ -82,11 +82,25 @@ struct HomePage: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 0) {
                         ForEach(0..<4) { _ in
-                            CardView(
+                            PortfolioCardView(
                                 title: "Total invested",
                                 value: 138544.00,
                                 variation: -15213.34,
                                 variationPercentage: 9.89
+                            )
+                        }
+                    }
+                }
+            }
+            HubSpacer(height: 16)
+            VStack(alignment: .leading) {
+                Text("Products")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        ForEach(0..<4) { _ in
+                            CardView(
+                               text: "Options",
+                               imageName: "dollarsign.arrow.circlepath"
                             )
                         }
                     }
