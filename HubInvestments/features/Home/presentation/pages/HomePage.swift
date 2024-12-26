@@ -43,71 +43,96 @@ struct HomePage: View {
     
     var body: some View {
         NavigationStack {
-            HStack {
-                Text("Investments")
-                    .font(.system(size: 24, weight: .semibold, design: .default))
-                Spacer()
-                Image(systemName: hideValues ? "eye.slash" : "eye")
-                    .foregroundColor(.gray)
-            }
-            HubSpacer(height: 32)
-            VStack(alignment: .leading) {
-                Text("Available to invest")
-                    .font(.system(size: 16, weight: .regular, design: .default))
-                Text("$ 982.839,23")
-                    .font(.system(size: 32, weight: .bold, design: .default))
-                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            HStack {
-                HubButtonPrimary(
-                    text: "Invest", 
-                    action: {
-                    
-                    }, 
-                    isLoading: .constant(false)
-                )
-                .isEnabled(isEnabled: true)
-                HubButtonSecondary(
-                    text: "Deposit",
-                    action: {
+            ScrollView(showsIndicators: false) {
+                HStack {
+                    Text("Investments")
+                        .font(.system(size: 24, weight: .semibold, design: .default))
+                    Spacer()
+                    Image(systemName: hideValues ? "eye.slash" : "eye")
+                        .foregroundColor(.gray)
+                }
+                HubSpacer(height: 32)
+                VStack(alignment: .leading) {
+                    Text("Available to invest")
+                        .font(.system(size: 16, weight: .regular, design: .default))
+                    Text("$ 982.839,23")
+                        .font(.system(size: 32, weight: .bold, design: .default))
+                        .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    HubButtonPrimary(
+                        text: "Invest",
+                        action: {
                         
+                        },
+                        isLoading: .constant(false)
+                    )
+                    .isEnabled(isEnabled: true)
+                    HubButtonSecondary(
+                        text: "Deposit",
+                        action: {
+                            
+                        }
+                    )
+                }
+                HubSpacer(height: 16)
+                VStack(alignment: .leading) {
+                    Text("Portfolio")
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 0) {
+                            ForEach(0..<4) { _ in
+                                PortfolioCardView(
+                                    title: "Total invested",
+                                    value: 138544.00,
+                                    variation: -15213.34,
+                                    variationPercentage: 9.89
+                                )
+                            }
+                        }
                     }
-                )
+                }
+                HubSpacer(height: 16)
+                VStack(alignment: .leading) {
+                    Text("Products")
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 0) {
+                            ForEach(0..<4) { _ in
+                                CardView(
+                                   text: "Options",
+                                   imageName: "dollarsign.arrow.circlepath"
+                                )
+                            }
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                HubSpacer(height: 8)
+                MyOrdersCard()
+                HubSpacer(height: 8)
+                VStack(alignment: .leading) {
+                    Text("Offers for you")
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 0) {
+                            ForEach(0..<4) { _ in
+                                OfferCard(
+                                    iconName: "rectangle.portrait.and.arrow.right",
+                                    title: "Funds and ETFs recommendation",
+                                    subtitle: "Created for your investor profile"
+                                )
+                                .padding([.trailing], 16)
+                            }
+                        }
+                    }
+                }
+                Spacer()
+            }
             
-            }
-            HubSpacer(height: 16)
-            VStack(alignment: .leading) {
-                Text("Portfolio")
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 0) {
-                        ForEach(0..<4) { _ in
-                            PortfolioCardView(
-                                title: "Total invested",
-                                value: 138544.00,
-                                variation: -15213.34,
-                                variationPercentage: 9.89
-                            )
-                        }
-                    }
-                }
-            }
-            HubSpacer(height: 16)
-            VStack(alignment: .leading) {
-                Text("Products")
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 0) {
-                        ForEach(0..<4) { _ in
-                            CardView(
-                               text: "Options",
-                               imageName: "dollarsign.arrow.circlepath"
-                            )
-                        }
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer()
+            
+        
+         
+       
+           
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
         .navigationBarBackButtonHidden(true)
