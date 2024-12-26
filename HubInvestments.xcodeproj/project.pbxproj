@@ -12,6 +12,8 @@
 		DB031C0F2D18C8C300DCCA63 /* AppUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB031C0E2D18C8C300DCCA63 /* AppUrls.swift */; };
 		DB031C122D18C9CA00DCCA63 /* AucAggregationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB031C112D18C9CA00DCCA63 /* AucAggregationModel.swift */; };
 		DB1452652D1C69520069BB1D /* HubButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1452642D1C69520069BB1D /* HubButtonSecondary.swift */; };
+		DB1452682D1DD2DB0069BB1D /* HubFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1452672D1DD2DB0069BB1D /* HubFormatter.swift */; };
+		DB14526D2D1DD5740069BB1D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14526C2D1DD5740069BB1D /* CardView.swift */; };
 		DB307A9B2CF54C41000BEF45 /* HubHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */; };
 		DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */; };
 		DB6302282CFCCB1D00B889AB /* LoginDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6302272CFCCB1D00B889AB /* LoginDatasource.swift */; };
@@ -54,6 +56,8 @@
 		DB031C0E2D18C8C300DCCA63 /* AppUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrls.swift; sourceTree = "<group>"; };
 		DB031C112D18C9CA00DCCA63 /* AucAggregationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AucAggregationModel.swift; sourceTree = "<group>"; };
 		DB1452642D1C69520069BB1D /* HubButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubButtonSecondary.swift; sourceTree = "<group>"; };
+		DB1452672D1DD2DB0069BB1D /* HubFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubFormatter.swift; sourceTree = "<group>"; };
+		DB14526C2D1DD5740069BB1D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubHelpers.swift; sourceTree = "<group>"; };
 		DB307A9D2CF54F49000BEF45 /* ValidateEmailModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateEmailModifier.swift; sourceTree = "<group>"; };
 		DB6302272CFCCB1D00B889AB /* LoginDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDatasource.swift; sourceTree = "<group>"; };
@@ -126,9 +130,43 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		DB1452662D1DD2CA0069BB1D /* formatters */ = {
+			isa = PBXGroup;
+			children = (
+				DB1452672D1DD2DB0069BB1D /* HubFormatter.swift */,
+			);
+			path = formatters;
+			sourceTree = "<group>";
+		};
+		DB1452692D1DD54A0069BB1D /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DB14526B2D1DD5580069BB1D /* components */,
+				DB14526A2D1DD5530069BB1D /* pages */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		DB14526A2D1DD5530069BB1D /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				DB63022A2CFCDECD00B889AB /* HomePage.swift */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		DB14526B2D1DD5580069BB1D /* components */ = {
+			isa = PBXGroup;
+			children = (
+				DB14526C2D1DD5740069BB1D /* CardView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		DB307A992CF54C2C000BEF45 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DB1452662D1DD2CA0069BB1D /* formatters */,
 				DBF5FDA42CF680AC00549904 /* enums */,
 				DB307A9C2CF54F33000BEF45 /* Modifiers */,
 				DB307A9A2CF54C41000BEF45 /* HubHelpers.swift */,
@@ -155,8 +193,8 @@
 		DB6302292CFCDEC200B889AB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DB1452692D1DD54A0069BB1D /* presentation */,
 				DB031C0B2D18C82100DCCA63 /* data */,
-				DB63022A2CFCDECD00B889AB /* HomePage.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -421,6 +459,7 @@
 				DB031C122D18C9CA00DCCA63 /* AucAggregationModel.swift in Sources */,
 				DB6302282CFCCB1D00B889AB /* LoginDatasource.swift in Sources */,
 				DBB548422CF258FD00BBC8D5 /* LoginPage.swift in Sources */,
+				DB14526D2D1DD5740069BB1D /* CardView.swift in Sources */,
 				DB307A9B2CF54C41000BEF45 /* HubHelpers.swift in Sources */,
 				DB943BF12CF003DF00428485 /* HubInvestmentsApp.swift in Sources */,
 				DB031C0F2D18C8C300DCCA63 /* AppUrls.swift in Sources */,
@@ -428,6 +467,7 @@
 				DBF5FDA62CF680C800549904 /* HubEnums.swift in Sources */,
 				DBB5484A2CF260C600BBC8D5 /* HubButtonPrimary.swift in Sources */,
 				DB1452652D1C69520069BB1D /* HubButtonSecondary.swift in Sources */,
+				DB1452682D1DD2DB0069BB1D /* HubFormatter.swift in Sources */,
 				DBF5FDAA2CF6856A00549904 /* AnotherTest.swift in Sources */,
 				DB307A9E2CF54F49000BEF45 /* ValidateEmailModifier.swift in Sources */,
 				DB031C0A2D18C5D000DCCA63 /* auth_handler.swift in Sources */,

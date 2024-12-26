@@ -74,8 +74,25 @@ struct HomePage: View {
                         
                     }
                 )
+            
             }
-             
+            HubSpacer(height: 16)
+            VStack(alignment: .leading) {
+                Text("Portfolio")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        ForEach(0..<4) { _ in
+                            CardView(
+                                title: "Total invested",
+                                value: 138544.00,
+                                variation: -15213.34,
+                                variationPercentage: 9.89
+                            )
+                        }
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
         }
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))

@@ -152,7 +152,7 @@ struct LoginPage: View {
     }
     
     func signIn() async {
-        await vm.signIn()  
+        await vm.signIn()
     }
 }
 
