@@ -11,7 +11,7 @@ import Combine
 class HomeViewModel: ObservableObject {
     var datasource: HomeDatasource
     var cancellables = Set<AnyCancellable>()
-    @Published var aucAggregation: AucAggregationModel?
+    @Published var aucAggregation: PositionAggregation?
     
     init(datasource: HomeDatasource) {
         self.datasource = datasource
@@ -20,12 +20,20 @@ class HomeViewModel: ObservableObject {
     func getAucAggregation() async {
         await datasource.getBalance()
             .sink { _ in
-                
             } receiveValue: { model in
                 self.aucAggregation = model
             }
             .store(in: &cancellables)
+    }
     
+    func getCategoryName(model: AucAggregationModel) -> String {
+        switch model.category {
+        case 1: "Stocks"
+        case 2: "Etfs"
+        case 3: "Funds"
+        case 4: "Fixed Income"
+        default: ""
+        }
     }
 }
 
@@ -55,7 +63,7 @@ struct HomePage: View {
                 VStack(alignment: .leading) {
                     Text("Available to invest")
                         .font(.system(size: 16, weight: .regular, design: .default))
-                    Text("$ 982.839,23")
+                    Text(HubFormmatter.formatToCurrency(vm.aucAggregation?.totalBalance ?? 0))
                         .font(.system(size: 32, weight: .bold, design: .default))
                         .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 }
@@ -81,14 +89,24 @@ struct HomePage: View {
                     Text("Portfolio")
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 0) {
-                            ForEach(0..<4) { _ in
-                                PortfolioCardView(
-                                    title: "Total invested",
-                                    value: 138544.00,
-                                    variation: -15213.34,
-                                    variationPercentage: 9.89
-                                )
+//                            ForEach(0..<vm.aucAggregation.positionAggregation.count, id: \.self) { position in
+//                            PortfolioCardView(//TODO: fazer endpoint retornar o total invested completo
+//                                title: "Total invested",
+//                                value: 138544.00,
+//                                variation: -15213.34,
+//                                variationPercentage: 9.89
+//                            )
+                            if vm.aucAggregation != nil {
+                                ForEach(vm.aucAggregation!.positionAggregation, id: \.self) { position in
+                                    PortfolioCardView(
+                                        title: vm.getCategoryName(model: position),
+                                        value: position.currentTotal,
+                                        variation: position.pnl,
+                                        variationPercentage: position.pnlPercentage
+                                    )
+                                }
                             }
+                           
                         }
                     }
                 }
@@ -138,17 +156,7 @@ struct HomePage: View {
         .navigationBarBackButtonHidden(true)
         .onAppear {
             Task {
-//                        await vm.getAucAggregation()
-            }
-        }
-      
-        
-        if vm.aucAggregation != nil {
-            VStack {
-                Text("Saldo: \(vm.aucAggregation?.availableBalance ?? -1)")
-                Text("Stocks: \(vm.aucAggregation?.stocksInvested ?? -1)")
-                Text("Etfs: \(vm.aucAggregation?.etfsInvested ?? -1)")
-                Text("Renda fixa: \(vm.aucAggregation?.fixedIncomeInvested ?? -1)")
+                await vm.getAucAggregation()
             }
         }
     }

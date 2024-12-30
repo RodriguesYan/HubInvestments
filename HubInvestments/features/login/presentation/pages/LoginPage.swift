@@ -27,16 +27,22 @@ class LoginViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     func signIn() async {
-        self.isLoading = true
+//        DispatchQueue.main.async {
+            self.isLoading = true
+//        }
 //        try? await Task.sleep(nanoseconds: 2_500_000_000)
         datasource.getData(email: email, password: password)
+            .receive(on: DispatchQueue.main)
             .sink { _ in
                 
             } receiveValue: { model in
                 Task {
                     await AuthHandler.shared.setToken(token: model.token)
-                    self.navigateToDetail = true
-                    self.isLoading = false
+//                    DispatchQueue.main.async {
+                        
+                        self.navigateToDetail = true
+                        self.isLoading = false
+//                    }
                 }
             }
             .store(in: &cancellables)

@@ -24,7 +24,6 @@ struct MyOrdersCard: View {
                 .resizable()
                   .frame(width: 16.0, height: 16.0)
         }
-        .frame(width: .infinity)
         .padding([.all], 24)
         .background(Color.gray.opacity(0.1))
         .cornerRadius(16)

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class HomeDatasource {
-    func getBalance() async -> AnyPublisher<AucAggregationModel, Error> {
+    func getBalance() async -> AnyPublisher<PositionAggregation, Error> {
         let url: URL = URL(string: AppUrl.getAucAggregation)!
         
         let token = await AuthHandler.shared.token
@@ -21,7 +21,7 @@ class HomeDatasource {
         return URLSession
             .shared.dataTaskPublisher(for: request)
             .map({ $0.data })
-            .decode(type: AucAggregationModel.self, decoder: JSONDecoder())
+            .decode(type: PositionAggregation.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
