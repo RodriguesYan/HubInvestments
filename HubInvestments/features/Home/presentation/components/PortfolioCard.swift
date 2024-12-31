@@ -27,7 +27,7 @@ struct PortfolioCardView: View {
                     .font(.subheadline)
                     .foregroundColor(variation < 0 ? .red : .green)
                     .fontWeight(.bold)
-                Text("(\(HubFormmatter.formatToCurrency(variationPercentage)))")
+                Text("(%\(variationPercentage))")
                     .font(.subheadline)
                     .foregroundColor(variation < 0 ? .red : .green)
                     .fontWeight(.bold)

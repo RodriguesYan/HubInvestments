@@ -29,7 +29,7 @@ class HomeViewModel: ObservableObject {
     func getCategoryName(model: AucAggregationModel) -> String {
         switch model.category {
         case 1: "Stocks"
-        case 2: "Etfs"
+        case 2: "ETFs"
         case 3: "Funds"
         case 4: "Fixed Income"
         default: ""
